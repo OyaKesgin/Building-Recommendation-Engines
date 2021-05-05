@@ -98,3 +98,9 @@ print(yogi_story_genres_ct)
 genre_list  Action  Adventure  Animation  Children  Comedy  Crime
 name                                                             
 Yogi Bear        0          0          0         1       1      0
+
+# Dealing with Sparsity
+
+What if data is less full. This actually common concern in world rating data. As a number of users and items are genereally quite high and the number of reviews are quite low. We call the percentage of data frame that is empty, data frame sparsity. another word the number of empty cells over the number of cells with data.
+why sparsity is a problem. this creates a problem when we use KNN with sparse data because KNN requires you to find K near users that rate the item. In data set, the large numbers of books have received 1 or 2 reviews.
+We can leverage Matrix factorization to deal with this problem remarkably well and create quite interesting features while doing so. Matrix factorizations When we decompose the user rating matrix into product two lower dimensionality matrises. These matrises shown here are factors of the original matrix on the left. if you are here to find product on two of them, this would be  disoriginal matrix. By finding factors of sparse matrix then multiplying together we can be left with fully filled matrix. We would dig into 
