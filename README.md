@@ -109,8 +109,12 @@ We can leverage Matrix factorization to deal with this problem remarkably well a
 
 it can be performed what values brings. just multiplices matrises together and they can be broken into factors. The huge benefit of these performed in conjuction with recommendation systems is that factors can be found as long as there is at least one value in every row and column. Or another words every user given at least one rating and every item has been rated at least once why this is valueable becasue we can multiply these factors together to create fully filled matrix . It calculates what values should be in these gaps base of incomplete matrixes factors. We will go into further depth about how we will do this but first lets run through how will factor the matrises. 
 
-The matrix factorisation brings the matrix into two compound matrixes. Take a rating matrix with M users as rows and n items are rated as the columns. Matrix factorization will break this down into one matrix with depth is equal to the number of users. One matrix with a width equal to the number of items. The number of values in newly created dimension is here called the rank of the matrix and must be equal to each other and can be decided by us. What is this unknown label columns and rows represent.They are called latent features. These are the features matrix factorization view mathematically the best way to describe are sum up these dataset least 
+The matrix factorisation brings the matrix into two compound matrixes. Take a rating matrix with M users as rows and n items are rated as the columns. Matrix factorization will break this down into one matrix with depth is equal to the number of users. One matrix with a width equal to the number of items. The number of values in newly created dimension is here called the rank of the matrix and must be equal to each other and can be decided by us. What is this unlabel columns and rows represent.They are called latent features. These are the features matrix factorization view mathematically the best way to describe are sum up these dataset in least number of features. To explain , what is in the tails
 
+
+SINGULAR VALUE DECOMPOSITION
+
+There are many ways to find factors of matrix. We will use a technique called Singular Value Decomposition like any matrix factorization approach SVD finds factors for the matrix U is the user matrix V transpose is the feature matrix , transpose in this case v flipped over diagonal. we here dont need to worry about here. but it also generates sigma as seen here which is a diagonal matrix which can be thought of as the weigth of latent feautures or how large impact they are calculated to have.
 
 
 
