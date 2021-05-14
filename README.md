@@ -114,7 +114,22 @@ The matrix factorisation brings the matrix into two compound matrixes. Take a ra
 
 SINGULAR VALUE DECOMPOSITION
 
-There are many ways to find factors of matrix. We will use a technique called Singular Value Decomposition like any matrix factorization approach SVD finds factors for the matrix U is the user matrix V transpose is the feature matrix , transpose in this case v flipped over diagonal. we here dont need to worry about here. but it also generates sigma as seen here which is a diagonal matrix which can be thought of as the weigth of latent feautures or how large impact they are calculated to have.
+There are many ways to find factors of matrix. We will use a technique called Singular Value Decomposition like any matrix factorization approach SVD finds factors for the matrix U is the user matrix V transpose is the feature matrix , transpose in this case v flipped over diagonal. we here dont need to worry about here. but it also generates sigma as seen here which is a diagonal matrix which can be thought of as the weigth of latent feautures or how large impact they are calculated to have. Before we get started , take a look at the data dimension using .shape function. SVD optimily work we need to centre the data by deducting the row average  from each row as we did on the third chapter. We found the row means for each user and substract them from matrix and row level. Once the data is centred , we can feel all the empty values with zeros without influencing overall ratings. 
+
+With the data set normalized we can import SVds from scipy and applied to the dataframe. You can spicfy k, the number of latent features being generated but in this case We would use default of six , SVD generates U, sigma and Vt. lets look at the shape of each of them. We should take a look at sigma, diagonal matrix first. We got a list. This can be converted to the matrix by using numpy diag function. Now we have full of factor matrixes, we can multiply them together to find full utility matrix. We find the dot product of U and sigma then find the dot product of result, Vtranspose to get the full matrix. This can be done on pyhton using np.dot product functions. First we take dot product of U and sigma and then dot product of result and Vt. Please note these numbers look low because they are centred. Therefore, We need to add values We deducted earlier back. 
+
+VALIDATING YOUR PREDICTIONS
+
+Analyzing how accurate our prediction are here. With recommendation engines, What you re trying to predict far more consistent , almost every user reviews different items and each item received reviews from different group of users. For this reason, we cant split Holdout Set same way we can typical machine learning.  Those cases we just split up the proportion of row and used them test our prediction as you see on the left recommendation engine is on the other hand we need to remove different chunk of data frame as seen on the right. This can be done on python but first constructing the area you want to compare in our case we focus on top left corner our based data frame consisting of top 20 rows and first 100columns. We blank out the area with np.nan. this is what we are predicting. Then we repeat the factorization to fill out the full dataframe and take a subset of predicted data frame you want to compare against. We now have the predicted values , the original actual values that  were not used to predict. As the only value we want to compare did exist, we mask the dataframe only to compare nanmissing fields
+When we look at the original data frame and the predicted one we can see only the values we want to compare are presents. Matrix most commonly used to measure how good the model is prediction of recommendation is called root mean squared error.
+
+
+
+
+
+
+
+
 
 
 
